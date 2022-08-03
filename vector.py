@@ -1,8 +1,8 @@
 from cmath import sqrt, tan
 from math import ceil, cos, pi, sin
-from matplotlib.axis import XAxis
+from turtle import pos
 from numpy import angle, array, float64, ndarray
-from pygame.draw import line
+from pygame.draw import line, circle
 class Vector():
     def __init__(self, offsetFromParent, parentVector=array((1920/2, 1080/2), dtype=float64)):
         
@@ -36,8 +36,12 @@ class Vector():
     def draw(self, screen):
         line(screen, (255, 255, 255), self.pos - self.offsetFromParent, self.pos, width=5)
         if type(self.parentVector) != ndarray:
-            rad1 = -self.radian + 3*pi/4
-            rad2 = -self.radian - 3*pi/4
+            circle(screen, (255, 255, 255), self.parentVector.pos, self.hypotenus, width = 2)
+            self.parentVector.draw(screen)
+        else: circle(screen, (255, 255, 255), self.parentVector, self.hypotenus, width=2)
+            
+        """ rad1 = self.radian + 3*pi/4
+            rad2 = self.radian - 3*pi/4
         else: 
             rad1 = self.radian + 3*pi/4
             rad2 = self.radian - 3*pi/4
@@ -50,10 +54,7 @@ class Vector():
         arr1 = array((xaxis1, yaxis1), dtype=float64)
         arr2 = array((xaxis2, yaxis2), dtype=float64)
         line(screen, (255, 255, 0), self.pos, self.pos + arr1, width=5)
-        line(screen, (255, 255, 0), self.pos, self.pos + arr2, width=5)
-        if type(self.parentVector) != ndarray:
-            self.parentVector.draw(screen)
-    
+        line(screen, (255, 255, 0), self.pos, self.pos + arr2, width=5)"""    
 
 if __name__ == '__main__':
     vector = Vector(array((-2, 0), dtype=float64))
