@@ -18,12 +18,13 @@ class Game():
         self.pause_toggle = False
         self.slider_variable = 0
         vectorlist = [[100, 0], [50, 0], [25, 0]]
-        self.vectorcount = 5
-        self.vectorspeedlist = [1, -1, 1]
+        self.vectorcount = len(vectorlist)
+        self.vectorspeedlist = [0.2, -0.2, 0.2]
         self.vector = Vector((50, 50))
         self.base_vector = self.vector
         for i in range(self.vectorcount):
-            self.vector = Vector((200 / (i+1), 0), parentVector=self.vector)
+            #self.vector = Vector((200 / (i+1), 0), parentVector=self.vector)
+            self.vector = Vector(vectorlist[i], parentVector=self.vector)
         self.rotate_pressed = False
         self.dot_list = []
     

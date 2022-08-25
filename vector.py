@@ -4,7 +4,7 @@ from turtle import pos
 from numpy import angle, array, float64, ndarray
 from pygame.draw import line, circle
 class Vector():
-    def __init__(self, offsetFromParent, parentVector=array((1920/2, 1080/2), dtype=float64)):
+    def __init__(self, offsetFromParent=[100, 0], parentVector=array((1920/2, 1080/2), dtype=float64)):
         
         self.offsetFromParent = array(offsetFromParent)
         self.complex = complex(offsetFromParent[0], offsetFromParent[1])
